@@ -83,6 +83,8 @@ class ContactDB
     function sendEmail(string $firstname, string $lastname, string $email, string $subject, string $message): bool
     {
         try {
+            define('SMTP_USERNAME', getenv('SMTP_USERNAME'));
+            define('SMTP_PASSWORD', getenv('SMTP_PASSWORD'));
             $sent_at = date('Y-m-d H:i:s');
 
             $mail = new PHPMailer(true);
@@ -144,6 +146,4 @@ class ContactDB
     }
 }
 
-define('SMTP_USERNAME', getenv('SMTP_USERNAME'));
-define('SMTP_PASSWORD', getenv('SMTP_PASSWORD'));
 return new ContactDB($pdo);

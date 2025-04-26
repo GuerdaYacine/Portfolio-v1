@@ -1,5 +1,8 @@
 <?php
 
+define('SECRET_KEY', getenv('SECRET_KEY'));
+
+
 class AuthDB
 {
     private PDOStatement $statementReadSession;
@@ -94,7 +97,5 @@ class AuthDB
         return $this->statementReadUserFromEmail->fetch();
     }
 }
-
-define('SECRET_KEY', getenv('SECRET_KEY'));
 
 return new AuthDB($pdo);

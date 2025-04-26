@@ -1,9 +1,9 @@
 <?php
 
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER');
-$password = getenv('DB_PASSWORD');
+$host = 'localhost';
+$dbname = 'portfolio';
+$user = 'root';
+$password = 'Root1234!';
 $charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;port=3306;dbname=$dbname;charset=$charset";
