@@ -94,7 +94,6 @@ class AuthDB
         return $this->statementReadUserFromEmail->fetch();
     }
 }
-define('SECRET_KEY', getenv('SECRET_KEY'));
-
+define('SECRET_KEY', $_ENV['SECRET_KEY']);
 
 return new AuthDB($pdo);
