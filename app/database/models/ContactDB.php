@@ -90,8 +90,8 @@ class ContactDB
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = $_ENV['SMTP_USERNAME'];
-            $mail->Password = $_ENV['SMTP_PASSWORD'];
+            $mail->Username = SMTP_USERNAME;
+            $mail->Password = SMTP_PASSWORD;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
@@ -143,4 +143,7 @@ class ContactDB
         }
     }
 }
+
+define('SMTP_USERNAME', getenv('SMTP_USERNAME'));
+define('SMTP_PASSWORD', getenv('SMTP_PASSWORD'));
 return new ContactDB($pdo);
