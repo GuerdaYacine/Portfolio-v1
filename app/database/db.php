@@ -1,18 +1,10 @@
 <?php
 
-// Charger le .env (manuellement tant qu'on n'a pas autre chose)
-if (file_exists(__DIR__ . '/../.env')) {
-    $env = parse_ini_file(__DIR__ . '/../.env');
-    foreach ($env as $key => $value) {
-        putenv("$key=$value");
-    }
-}
-
 $host = getenv('DB_HOST');
 $dbname = getenv('DB_NAME');
 $user = getenv('DB_USER');
 $password = getenv('DB_PASSWORD');
-$charset = getenv('DB_CHARSET');
+$charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
 
