@@ -1,6 +1,6 @@
 <?php
 
-define('SECRET_KEY', getenv('SECRET_KEY'));
+define('SECRET_KEY', getenv('f7e5d3b6a9c8e1f2d4b6a8c0e3f5d7a9b2c4e6f8a0d2c4b6a8e0f2d4c6a8b0e2d4f6'));
 
 
 class AuthDB
