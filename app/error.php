@@ -30,14 +30,14 @@
 
             <!-- Error message -->
             <div class="w-full lg:w-1/2 text-center lg:text-left">
-                <h2 class="text-[28px] font-extrabold text-[#145C9E] mb-6" id="error-title">Une erreur est survenue</h2>
+                <h2 class="text-[34px] font-extrabold text-[#145C9E] mb-6" id="error-title">Une erreur est survenue</h2>
 
-                <p class="text-[20px] font-semibold opacity-90 mb-8" id="error-message">
+                <p class="text-[22px] font-semibold opacity-90 mb-8" id="error-message">
                     Nous rencontrons un problème. Veuillez réessayer plus tard ou revenir à la page d'accueil.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <a href="/" class="px-8 py-3 bg-[#145C9E] text-white rounded-md font-semibold text-[20px] hover:bg-[#0f4c81] transition-colors duration-300">
+                    <a href="/" class="px-8 py-3 bg-[#145C9E] text-white rounded-md font-semibold text-[18px] hover:bg-[#0f4c81] transition-colors duration-300">
                         Retourner à l'accueil
                     </a>
                 </div>
