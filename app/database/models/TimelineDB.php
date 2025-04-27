@@ -7,6 +7,8 @@ class TimelineDB
     private PDOStatement $statementDeleteEvent;
     private PDOStatement $statementUpdateEvent;
     private PDOStatement $statementCreateEvent;
+    private string $uploadDir;
+    private string $uploadDirRelative = 'assets/images-timeline/';
 
     function __construct(private PDO $pdo)
     {
@@ -31,6 +33,12 @@ class TimelineDB
             :date,
             :image
         )');
+
+        // Définir le chemin absolu du répertoire d'upload
+        $this->uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/' . $this->uploadDirRelative;
+
+        // S'assurer que le chemin est correct même quand DOCUMENT_ROOT contient déjà un slash final
+        $this->uploadDir = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . $this->uploadDirRelative;
     }
 
     function getAllEvents(): array
@@ -91,25 +99,45 @@ class TimelineDB
             return ['error' => 'L\'image ne doit pas dépasser 2 Mo', 'filename' => $imageFileName];
         }
 
-        $imageFileName = uniqid('img_', true) . '.' . $fileExtension;
-        $uploadPath = 'assets/images-timeline/' . $imageFileName;
+        // Vérifier si le fichier temporaire existe et est un upload valide
+        if (!file_exists($fileData['tmp_name']) || !is_uploaded_file($fileData['tmp_name'])) {
+            return ['error' => 'Le fichier temporaire n\'existe pas ou n\'est pas un fichier uploadé', 'filename' => $imageFileName];
+        }
 
-        if (!is_dir('assets/images-timeline')) {
-            mkdir('assets/images-timeline', 0777, true);
+        $imageFileName = uniqid('img_', true) . '.' . $fileExtension;
+        $uploadPath = $this->uploadDir . $imageFileName;
+
+        // Créer le répertoire d'upload si nécessaire
+        if (!is_dir($this->uploadDir)) {
+            if (!mkdir($this->uploadDir, 0755, true)) {
+                $error = error_get_last();
+                return ['error' => 'Impossible de créer le répertoire d\'upload: ' . ($error['message'] ?? 'Raison inconnue'), 'filename' => $imageFileName];
+            }
+        }
+
+        // Vérifier les permissions d'écriture
+        if (!is_writable($this->uploadDir)) {
+            return ['error' => 'Le répertoire d\'upload n\'est pas accessible en écriture', 'filename' => $imageFileName];
         }
 
         if ($currentImage) {
-            $oldImagePath = 'assets/images-timeline/' . basename($currentImage);
+            $oldImagePath = $this->uploadDir . basename($currentImage);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
         }
 
-        if (move_uploaded_file($fileData['tmp_name'], $uploadPath)) {
-            return ['error' => '', 'filename' => $imageFileName];
+        if (!move_uploaded_file($fileData['tmp_name'], $uploadPath)) {
+            $error = error_get_last();
+            return ['error' => 'Erreur lors du téléchargement de l\'image: ' . ($error['message'] ?? 'Raison inconnue'), 'filename' => $imageFileName];
         }
 
-        return ['error' => 'Erreur lors du téléchargement de l\'image', 'filename' => $imageFileName];
+        return ['error' => '', 'filename' => $imageFileName];
+    }
+
+    function getUploadDirRelative(): string
+    {
+        return $this->uploadDirRelative;
     }
 
     function validateEventData(string $title, string $description, string $date): array
