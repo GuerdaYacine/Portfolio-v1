@@ -1,9 +1,12 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'portfolio';
-$user = 'root';
-$password = 'Root1234!';
+// Charger les variables d'environnement depuis le fichier .env
+$env = parse_ini_file('.env');
+
+$host = $env['DB_HOST'];
+$dbname = $env['DB_NAME'];
+$user = $env['DB_USER'];
+$password = $env['DB_PASSWORD'];
 $charset = "utf8mb4";
 
 $dsn = "mysql:host=$host;port=3306;dbname=$dbname;charset=$charset";
