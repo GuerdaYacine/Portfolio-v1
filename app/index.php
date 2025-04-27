@@ -13,6 +13,9 @@ $currentUser = $authDB->isLoggedIn();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Hi, I'm Guerda Yacine, I'm studying computer science at Saint Vincent High School in Senlis. I'm actually learning in the way to be a Full-Stack Web Developer.">
   <title>Portfolio</title>
+  <link rel="icon" href="/assets/images/favicon.jpg" type="image/png">
+  <link rel="shortcut icon" href="/assets/images/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">

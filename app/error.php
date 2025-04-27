@@ -7,6 +7,7 @@
     <meta name="description" content="Une erreur est survenue.">
     <title>Erreur</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="/assets/images/favicon.jpg" type="image/png">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
