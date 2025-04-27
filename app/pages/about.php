@@ -1,5 +1,5 @@
-<section class="flex items-center h-screen gap-[24px] " id="about">
-    <div class="card w-full flex justify-center items-center">
+<section class="card flex items-center h-screen gap-[24px] " id="about">
+    <div class="w-full flex justify-center items-center">
         <article class="lg:w-[55%] w-[90%] leading-none text-center lg:text-left">
             <h1 class="text-[4rem] gilmer text-[#eff0f3] font-extrabold">Guerda Yacine, Web developper.</h1>
             <p class="text-[#145C9E] font-extrabold text-[2.8rem] inter my-[25px]"><span class="auto-type "></span></p>
@@ -179,7 +179,7 @@
             </div>
         </aside>
     </div>
-    <div class="card absolute bottom-[35px] left-[50%] right-[50%]  table">
+    <div class="absolute bottom-[35px] left-[50%] right-[50%]  table">
         <div class="relative h-[34px] w-[22px] border-2 border-[#eff0f3] rounded-full">
             <div class="absolute top-2 left-0 right-0 mx-auto h-[4px] w-[4px] bg-[#eff0f3] rounded-full animate-scroll-down">
             </div>
