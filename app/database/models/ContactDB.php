@@ -2,6 +2,19 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
+$envFile = dirname(__DIR__) . '/.env';
+if (file_exists($envFile)) {
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+        list($name, $value) = explode('=', $line, 2);
+        putenv("$name=$value");
+    }
+}
+
+define('SMTP_USERNAME', getenv('SMTP_USERNAME'));
+define('SMTP_PASSWORD', getenv('SMTP_PASSWORD'));
+
 class ContactDB
 {
     private PDOStatement $statementCreateContact;
@@ -83,8 +96,6 @@ class ContactDB
     function sendEmail(string $firstname, string $lastname, string $email, string $subject, string $message): bool
     {
         try {
-            define('SMTP_USERNAME', getenv('SMTP_USERNAME'));
-            define('SMTP_PASSWORD', getenv('SMTP_PASSWORD'));
             $sent_at = date('Y-m-d H:i:s');
 
             $mail = new PHPMailer(true);
