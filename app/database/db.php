@@ -1,7 +1,13 @@
 <?php
 
-// Charger les variables d'environnement depuis le fichier .env
-$env = parse_ini_file('.env');
+$envPath = dirname(__DIR__) . 'app/.env';
+
+if (file_exists($envPath)) {
+    $env = parse_ini_file($envPath);
+} else {
+    $env = [];
+    error_log("Le fichier .env n'a pas été trouvé à : " . $envPath);
+}
 
 $host = $env['DB_HOST'];
 $dbname = $env['DB_NAME'];
