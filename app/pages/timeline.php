@@ -30,10 +30,7 @@ if (isset($_GET['delete_event']) && ctype_digit($_GET['delete_event'])) {
     $eventToDelete = $timelineDB->getEventById($eventId);
 
     if ($eventToDelete) {
-        $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/' . $timelineDB->getUploadDirRelative();
-        $uploadDir = rtrim($_SERVER['DOCUMENT_ROOT'], '/') . '/' . $timelineDB->getUploadDirRelative();
-        $imagePath = $uploadDir . basename($eventToDelete['image']);
-
+        $imagePath = 'assets/images-timeline/' . basename($eventToDelete['image']);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
@@ -223,7 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addEvent'])) {
                     <?php if ($eventId && !empty($currentImage)): ?>
                         <div class="mt-2">
                             <p class="text-[#eff0f3] text-[16px]">Image actuelle:</p>
-                            <img src="<?= $timelineDB->getUploadDirRelative() . $currentImage ?>"
+                            <img src="assets/images-timeline/<?= $currentImage ?>"
                                 alt="Image actuelle de l'événement" class="max-h-[150px] mt-2">
                         </div>
                     <?php endif; ?>
