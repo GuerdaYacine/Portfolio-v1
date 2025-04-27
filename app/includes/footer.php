@@ -40,6 +40,6 @@
     </nav>
 
     <div class="text-[2rem] text-[#eff0f3]">
-        <p>Guerda <a href="#" download="" class="text-[#145C9E] underline">Yacine</a> © 2023 </p>
+        <p>Guerda <a href="#" download="" class="text-[#145C9E] underline">Yacine</a> © 2025 </p>
     </div>
 </footer>
