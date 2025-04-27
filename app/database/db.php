@@ -1,6 +1,6 @@
 <?php
 
-$envPath = dirname(__DIR__) . 'app/.env';
+$envPath = dirname(__DIR__) . '/.env';
 
 if (file_exists($envPath)) {
     $env = parse_ini_file($envPath);
