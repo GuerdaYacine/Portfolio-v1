@@ -179,7 +179,7 @@
             </div>
         </aside>
     </div>
-    <div class="absolute bottom-[50px] left-[50%] right-[50%]  table">
+    <div class="absolute md:bottom-[50px] bottom-[100px] left-[50%] right-[50%]  table">
         <div class="relative h-[34px] w-[22px] border-2 border-[#eff0f3] rounded-full">
             <div class="absolute top-2 left-0 right-0 mx-auto h-[4px] w-[4px] bg-[#eff0f3] rounded-full animate-scroll-down">
             </div>
