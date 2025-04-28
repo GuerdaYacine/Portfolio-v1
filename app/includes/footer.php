@@ -1,6 +1,6 @@
 <footer class="card w-full flex flex-col justify-center items-center gap-[30px] mb-[30px]">
     <nav class=" w-full flex justify-center items-center">
-        <a href="https://github.com/BouderBaden" target="_blank" rel="noreferrer" class="flex justify-center items-center text-[#eff0f3] text-[2rem] mx-[2%] gap-[10px]">
+        <a href="https://github.com/GuerdaYacine" target="_blank" rel="noreferrer" class="flex justify-center items-center text-[#eff0f3] text-[2rem] mx-[2%] gap-[10px]">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -40,6 +40,6 @@
     </nav>
 
     <div class="text-[2rem] text-[#eff0f3]">
-        <p>Guerda <a href="#" download="" class="text-[#145C9E] underline">Yacine</a> © 2025 </p>
+        <p>Guerda <a href="assets/CV/Yacine-Guerda.pdf" download class="text-[#145C9E] hover:underline">Yacine</a> © 2025 </p>
     </div>
 </footer>
