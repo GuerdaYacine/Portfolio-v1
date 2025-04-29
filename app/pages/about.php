@@ -1,4 +1,4 @@
-<section class="card flex items-center h-screen gap-[24px] " id="about">
+<section class="card flex items-center h-[90vh] md:h-screen gap-[24px] " id="about">
     <div class="w-full flex justify-center items-center">
         <article class="lg:w-[55%] w-[90%] leading-none text-center lg:text-left">
             <h1 class="text-[4rem] gilmer text-[#eff0f3] font-extrabold">Guerda Yacine, Web developper.</h1>
