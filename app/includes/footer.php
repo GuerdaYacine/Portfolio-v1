@@ -40,6 +40,6 @@
     </nav>
 
     <div class="text-[2rem] text-[#eff0f3]">
-        <p>Guerda <a href="assets/CV/Yacine-Guerda.pdf" download class="text-[#145C9E] hover:underline">Yacine</a> © 2025 </p>
+        <p>Guerda <a href="assets/CV/Yacine_Guerda.pdf" download class="text-[#145C9E] hover:underline">Yacine</a> © 2025 </p>
     </div>
 </footer>

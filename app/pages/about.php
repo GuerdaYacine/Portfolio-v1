@@ -5,7 +5,7 @@
             <p class="text-[#145C9E] font-extrabold text-[2.8rem] inter my-[25px]"><span class="auto-type "></span></p>
             <p class="rajdhani text-[#eff0f3] font-semibold text-[2.1rem] w-[100%] lg:w-[70%] opacity-[0.9]">Hi, I'm Guerda Yacine, I'm studying computer science at <a href="https://www.lycee-stvincent.fr/" target="_blank">Saint Vincent High School</a> in Senlis.<br /><br />
                 I'm actually learning in the way to be a Full-Stack Web Developer.<br /><br />
-                Feel free to check out my <a href="assets/CV/Yacine-Guerda.pdf" download class="text-[#145C9E] hover:underline">resume</a> and portfolio to learn more about my
+                Feel free to check out my <a href="assets/CV/Yacine_Guerda.pdf" download class="text-[#145C9E] hover:underline">resume</a> and portfolio to learn more about my
                 projects and skills.
             </p>
         </article>
