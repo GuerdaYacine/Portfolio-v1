@@ -37,18 +37,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addMessage'])) {
 
     $errorsContact = $contactDB->validateContactData($firstname, $lastname, $email, $subject, $message);
 
-    if (empty(array_filter($errorsContact, fn($e) => $e !== ''))) {
+    // Vérifier s'il n'y a pas d'erreurs
+    $hasErrors = !empty(array_filter($errorsContact, fn($e) => $e !== ''));
+
+    if (!$hasErrors) {
         $contactDB->createMessage($firstname, $lastname, $email, $subject, $message);
 
         $emailSent = $contactDB->sendEmail($firstname, $lastname, $email, $subject, $message);
 
         if ($emailSent) {
+            // Redirection vers la page d'accueil en cas de succès
             header('Location: /?message_sent=true#');
             exit;
         } else {
             $errorsContact['message'] = 'Une erreur s\'est produite lors de l\'envoi de l\'email. Veuillez réessayer plus tard.';
         }
     }
+    // Si on a des erreurs, on ne redirige pas - le formulaire s'affichera avec les erreurs
 }
 ?>
 <?php if (isset($_GET['message_sent']) && $_GET['message_sent'] === 'true') : ?>
@@ -63,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addMessage'])) {
 <section class="flex flex-col items-center justify-center py-[100px] gap-[50px]" id="contact">
     <h5 class="card text-[#eff0f3] text-[4rem] inter">Contact me</h5>
     <div class="card p-[25px] bg-[#1d1f25] w-[90%] md:w-[80%] rounded-[15px] flex justify-center items-center">
-        <form action="" method="POST" class="flex flex-col justify-center w-full md:w-[50%]">
+        <form action="#contact" method="POST" class="flex flex-col justify-center w-full md:w-[50%]">
             <label for="firstname" class="text-[20px] font-light text-[#eff0f3] inter">First name :</label>
             <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" value="<?= $firstname ?? '' ?>" class="inter text-[18px] p-[8px] rounded-[5px] outline-none mt-[8px] mb-[20px] <?= $errorsContact['firstname'] ? 'border-2 border-red-500 mb-[0px]' : '' ?>">
             <?php if ($errorsContact['firstname']) : ?>
