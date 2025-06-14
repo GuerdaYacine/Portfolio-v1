@@ -65,33 +65,34 @@ class ContactDB
         $regexName = "/^[a-zA-ZÀ-ÿ\- ]+$/u";
 
         if ($firstname && !preg_match($regexName, $firstname)) {
-            $errors['firstname'] = 'Le prénom ne doit contenir que des lettres, espaces ou tirets.';
+            $errors['firstname'] = 'First name must contain only letters, spaces, or hyphens.';
         }
 
         if ($lastname && !preg_match($regexName, $lastname)) {
-            $errors['lastname'] = 'Le nom ne doit contenir que des lettres, espaces ou tirets.';
+            $errors['lastname'] = 'Last name must contain only letters, spaces, or hyphens.';
         }
 
         if (!$email) {
-            $errors['email'] = 'L\'email est requise';
+            $errors['email'] = 'Email is required.';
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errors['email'] = 'Veuillez saisir une adresse email valide';
+            $errors['email'] = 'Please enter a valid email address.';
         }
 
         if (!$subject) {
-            $errors['subject'] = 'Veuillez saisir un sujet';
+            $errors['subject'] = 'Please enter a subject.';
         } elseif (strlen($subject) < 10) {
-            $errors['subject'] = 'Le sujet doit faire au moins 10 caractères';
+            $errors['subject'] = 'Subject must be at least 10 characters long.';
         }
 
         if (!$message) {
-            $errors['message'] = 'Veuillez saisir le contenu du message';
+            $errors['message'] = 'Please enter a message.';
         } elseif (strlen($message) < 20) {
-            $errors['message'] = 'Le message doit faire au moins 20 caractères';
+            $errors['message'] = 'Message must be at least 20 characters long.';
         }
 
         return $errors;
     }
+
 
     function sendEmail(string $firstname, string $lastname, string $email, string $subject, string $message): bool
     {
