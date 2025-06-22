@@ -104,13 +104,13 @@ class ContactDB
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'guerda.yacine60100@gmail.com';
-            $mail->Password = 'vyhv buuz ytmv jneh';
+            $mail->Username = SMTP_USERNAME;
+            $mail->Password = SMTP_PASSWORD;
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('guerda.yacine60100@gmail.com', 'Formulaire de contact');
-            $mail->addAddress('guerda.yacine60100@gmail.com', 'Yacine Guerda');
+            $mail->setFrom(SMTP_USERNAME, 'Formulaire de contact');
+            $mail->addAddress(SMTP_USERNAME, 'Yacine Guerda');
             $mail->addReplyTo($email, $firstname . ' ' . $lastname);
 
             // Contenu
