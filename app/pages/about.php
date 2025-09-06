@@ -177,7 +177,7 @@
                 </div>
 
                 <div class="flex justify-center items-center w-[88px] h-[88px] bg-[#1d1f25] rounded-[20%]">
-                    <svg fill="#ffffff" viewBox="0 -5.5 35 35" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff">
+                    <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff" height="30" width="45">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
